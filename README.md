@@ -1,0 +1,2 @@
+# 35-COLLABORATION-SERVER-CARROT
+모바일 앱 6팀 서버 - 당근 🥕
