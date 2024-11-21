@@ -30,7 +30,7 @@ public class UserService {
         User user = userRepository.findById(userId).orElseThrow(()-> new UserException(FailureCode.USER_NOT_FOUND));
 
         //2. 주소 조회
-        Address address = addressRepository.findById(user.getAddressId()).orElseThrow(()-> new AddressException(FailureCode.INVALID_VALUE));
+        Address address = addressRepository.findById(user.getAddress().getId()).orElseThrow(()-> new AddressException(FailureCode.INVALID_VALUE));
 
         return UserMapper.toResponse(user,address);
 
