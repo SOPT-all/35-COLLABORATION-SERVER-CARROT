@@ -20,10 +20,10 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @NoArgsConstructor(access = PROTECTED)
 @Table(
-        name = "Product", indexes = {
+        name = "product", indexes = {
         @Index(name = "idx_product_title", columnList = "title")
-}
-)public class Product extends BaseTimeEntity {
+})
+public class Product extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
