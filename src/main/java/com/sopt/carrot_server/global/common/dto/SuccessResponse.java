@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import com.sopt.carrot_server.global.common.code.SuccessCode;
 
-@JsonPropertyOrder({"status", "message", "result"})
+@JsonPropertyOrder({"status", "result"})
 public record SuccessResponse<T>(
         int status,
 
