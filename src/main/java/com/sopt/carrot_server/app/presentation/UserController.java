@@ -2,6 +2,7 @@ package com.sopt.carrot_server.app.presentation;
 
 import com.sopt.carrot_server.app.application.UserService;
 import com.sopt.carrot_server.app.dto.response.UserResponse;
+import com.sopt.carrot_server.app.dto.response.UserSellingProductListResponse;
 import com.sopt.carrot_server.global.common.code.SuccessCode;
 import com.sopt.carrot_server.global.common.dto.SuccessResponse;
 
@@ -14,14 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/{userId}")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<SuccessResponse<UserResponse>> getUserById(@PathVariable Long userId){
         UserResponse userResponse = userService.getUserById(userId);
-        return ResponseEntity.ok(SuccessResponse.of(SuccessCode.SUCCESS_GET_DIARY_DETAIL,userResponse));
+        return ResponseEntity.ok(SuccessResponse.of(SuccessCode.SUCCESS_GET_USER_DETAIL, userResponse));
     }
+
+    @GetMapping("/users/{userId}/sellig-products")
+    public ResponseEntity<SuccessResponse> getUserSellingProducts(@PathVariable Long userId) {
+        UserSellingProductListResponse userSellingProducts = userService.getUserSellingProducts(userId);
+        return ResponseEntity.ok(SuccessResponse.of(
+                SuccessCode.SUCCESS_GET_USER_SELLING_PRODUCTS,
+                userSellingProducts)
+        );
+    }
+
 }

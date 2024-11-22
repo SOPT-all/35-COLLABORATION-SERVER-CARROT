@@ -8,5 +8,4 @@ public enum ProductSatus {
     SOLD_OUT("판매완료");
 
     private final String value;
-
 }
