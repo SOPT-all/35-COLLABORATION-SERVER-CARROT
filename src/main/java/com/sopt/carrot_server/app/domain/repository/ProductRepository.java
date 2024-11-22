@@ -9,8 +9,12 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductRepository extends Repository<Product, Long> {
+
+    @Query("SELECT p FROM Product p WHERE p.id = :productId")
+    Optional<Product> findDetailInfoByProductId(@Param("productId") Long productId);
 
     @Query("SELECT p " +
             "FROM Product p " +

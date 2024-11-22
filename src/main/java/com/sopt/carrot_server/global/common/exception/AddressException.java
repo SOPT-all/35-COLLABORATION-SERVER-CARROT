@@ -10,7 +10,7 @@ public class AddressException extends ApiException {
   }
 
     public AddressException(FailureCode failureCode) {
-      super(failureCode, "[UserException]");
+      super(failureCode, "[AddressException]");
       this.failureCode = failureCode;
     }
 }

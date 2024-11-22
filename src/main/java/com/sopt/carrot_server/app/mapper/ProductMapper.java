@@ -1,6 +1,8 @@
 package com.sopt.carrot_server.app.mapper;
 
 import com.sopt.carrot_server.app.domain.Product;
+
+import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductListResponse;
 import com.sopt.carrot_server.app.dto.response.UserSellingProductDetailResponse;
@@ -9,6 +11,19 @@ import com.sopt.carrot_server.app.dto.response.UserSellingProductListResponse;
 import java.util.List;
 
 public class ProductMapper {
+
+    public static ProductDetailResponse toProductDetailResponseDTO(Product product) {
+        return ProductDetailResponse.builder()
+                .productId(product.getId())
+                .productImage(product.getProductImage())
+                .title(product.getTitle())
+                .category(product.getCategory())
+                .content(product.getContent())
+                .price(product.getPrice())
+                .view(product.getView())
+                .build();
+    }
+
 
     public static SearchProductListResponse toSearchProductListDTO(
             final List<Product> relatedProducts,
@@ -19,6 +34,7 @@ public class ProductMapper {
                 fromSimilarProducts(similarProducts)
         );
     }
+
 
     public static List<SearchProductDetailResponse> fromProducts(List<Product> products) {
         return products.stream()
@@ -32,6 +48,7 @@ public class ProductMapper {
                 )).toList();
     }
 
+
     public static List<SearchProductDetailResponse> fromSimilarProducts(final List<Product> similarProducts) {
         return similarProducts.stream()
                 .map(product -> SearchProductDetailResponse.of(
@@ -44,6 +61,7 @@ public class ProductMapper {
                 )).toList();
     }
 
+
     public static UserSellingProductListResponse fromUserSellingProducts(final List<Product> products) {
         return UserSellingProductListResponse.of(products.stream()
                 .map(product -> UserSellingProductDetailResponse.of(
@@ -54,4 +72,5 @@ public class ProductMapper {
                 )).toList()
         );
     }
+
 }
