@@ -10,6 +10,7 @@ public enum SuccessCode {
 
     // Users
     SUCCESS_GET_USER_DETAIL(HttpStatus.OK),
+    SUCCESS_GET_USER_SELLING_PRODUCTS(HttpStatus.OK),
 
     // Search
     SUCCESS_SEARCH_PRODUCTS(HttpStatus.OK);
