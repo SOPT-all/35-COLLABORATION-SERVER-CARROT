@@ -9,12 +9,13 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class ProductController {
 
     private final ProductService productService;
@@ -23,7 +24,7 @@ public class ProductController {
     public ResponseEntity<SuccessResponse> getProductCategories() {
         ProductCategoryListResponse productCategories = productService.getProductCategories();
         return ResponseEntity.ok(SuccessResponse.of(
-                SuccessCode.SUCCESS_GET_USER_SELLING_PRODUCTS,
+                SuccessCode.SUCCESS_GET_PRODUCT_CATEGORIES,
                 productCategories)
         );
     }
