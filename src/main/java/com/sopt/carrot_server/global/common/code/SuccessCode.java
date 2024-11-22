@@ -19,6 +19,7 @@ public enum SuccessCode {
 
     private final HttpStatus httpStatus;
 
+
     public HttpStatus getHttpStatus() {
         return httpStatus;
     }

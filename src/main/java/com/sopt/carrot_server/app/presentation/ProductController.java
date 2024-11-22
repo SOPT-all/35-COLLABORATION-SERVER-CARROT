@@ -2,6 +2,7 @@ package com.sopt.carrot_server.app.presentation;
 
 import com.sopt.carrot_server.app.application.ProductService;
 import com.sopt.carrot_server.app.dto.response.ProductCategoryListResponse;
+import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
 import com.sopt.carrot_server.global.common.code.SuccessCode;
 import com.sopt.carrot_server.global.common.dto.SuccessResponse;
 
@@ -27,5 +28,11 @@ public class ProductController {
                 SuccessCode.SUCCESS_GET_PRODUCT_CATEGORIES,
                 productCategories)
         );
+    }
+
+    @GetMapping("/products/{productId}")
+    public ResponseEntity<SuccessResponse<ProductDetailResponse>> getDetailInfo(@PathVariable Long productId){
+        ProductDetailResponse ProductResponse = productService.getDetailInfo(productId);
+        return ResponseEntity.ok(SuccessResponse.of(SuccessCode.SUCCESS_GET_PRODUCT_DETAIL,ProductResponse));
     }
 }
