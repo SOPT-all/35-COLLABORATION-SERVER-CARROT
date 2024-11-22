@@ -1,6 +1,8 @@
 package com.sopt.carrot_server.app.mapper;
 
 import com.sopt.carrot_server.app.domain.Product;
+import com.sopt.carrot_server.app.domain.enums.ProductSatus;
+import com.sopt.carrot_server.app.dto.response.ProductCategoryListResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductListResponse;
 import com.sopt.carrot_server.app.dto.response.UserSellingProductDetailResponse;
@@ -53,5 +55,9 @@ public class ProductMapper {
                         product.getPrice()
                 )).toList()
         );
+    }
+
+    public static ProductCategoryListResponse getProductCategories(List<String> categories) {
+        return ProductCategoryListResponse.of(categories);
     }
 }
