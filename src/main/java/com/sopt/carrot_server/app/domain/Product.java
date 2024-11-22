@@ -1,9 +1,12 @@
 package com.sopt.carrot_server.app.domain;
 
 import com.sopt.carrot_server.app.domain.common.BaseTimeEntity;
+import com.sopt.carrot_server.app.domain.enums.ProductSatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -51,6 +54,7 @@ public class Product extends BaseTimeEntity {
     private int view;
 
     @NotNull
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private ProductSatus status;
 
 }
