@@ -8,10 +8,11 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum SuccessCode {
 
-    SUCCESS_CREATE_DIARY(HttpStatus.CREATED),
-    SUCCESS_UPDATE_DIARY(HttpStatus.OK),
-    SUCCESS_DELETE_DIARY(HttpStatus.OK),
-    SUCCESS_GET_DIARY_DETAIL(HttpStatus.OK);
+    // Users
+    SUCCESS_GET_USER_DETAIL(HttpStatus.OK),
+
+    // Search
+    SUCCESS_SEARCH_PRODUCTS(HttpStatus.OK);
 
     private final HttpStatus httpStatus;
 
