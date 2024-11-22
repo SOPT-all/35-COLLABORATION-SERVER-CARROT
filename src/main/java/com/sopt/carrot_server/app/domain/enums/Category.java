@@ -3,6 +3,9 @@ package com.sopt.carrot_server.app.domain.enums;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Getter
 public enum Category {
@@ -29,5 +32,10 @@ public enum Category {
     BUY("삽니다");
 
     private final String value;
+
+    public static List<String> getValues() {
+        return Arrays.stream(Category.values())
+                .map(Category::getValue).toList();
+    }
 
 }
