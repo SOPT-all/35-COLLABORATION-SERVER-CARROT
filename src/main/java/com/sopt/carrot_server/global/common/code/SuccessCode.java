@@ -12,9 +12,11 @@ public enum SuccessCode {
     SUCCESS_GET_USER_DETAIL(HttpStatus.OK),
     SUCCESS_GET_USER_SELLING_PRODUCTS(HttpStatus.OK),
 
+
     // Product
     SUCCESS_SEARCH_PRODUCTS(HttpStatus.OK),
     SUCCESS_GET_PRODUCT_DETAIL(HttpStatus.OK);
+
     private final HttpStatus httpStatus;
 
 

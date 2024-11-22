@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface ProductRepository extends Repository<Product, Long> {
 
     @Query("SELECT p FROM Product p WHERE p.id = :productId")
-    Optional <Product> findDetailInfoByProductId(@Param("productId") Long productId);
+    Optional<Product> findDetailInfoByProductId(@Param("productId") Long productId);
 
     @Query("SELECT p " +
             "FROM Product p " +
@@ -37,4 +37,3 @@ public interface ProductRepository extends Repository<Product, Long> {
     List<Product> findProductsByUser(@Param("user") User user, @Param("status") ProductSatus status);
 
 }
-

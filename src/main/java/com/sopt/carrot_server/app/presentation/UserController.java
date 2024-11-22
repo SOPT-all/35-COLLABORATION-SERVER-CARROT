@@ -23,8 +23,8 @@ public class UserController {
     @GetMapping("/users/{userId}")
     public ResponseEntity<SuccessResponse<UserResponse>> getUserById(@PathVariable Long userId){
         UserResponse userResponse = userService.getUserById(userId);
-
         return ResponseEntity.ok(SuccessResponse.of(SuccessCode.SUCCESS_GET_USER_DETAIL,userResponse));
+
     }
 
     @GetMapping("/users/{userId}/sellig-products")

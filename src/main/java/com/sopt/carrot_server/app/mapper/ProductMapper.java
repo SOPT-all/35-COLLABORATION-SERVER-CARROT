@@ -1,6 +1,7 @@
 package com.sopt.carrot_server.app.mapper;
 
 import com.sopt.carrot_server.app.domain.Product;
+
 import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductListResponse;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class ProductMapper {
 
-    public static ProductDetailResponse toProductDetailResponseDTO(Product product){
+    public static ProductDetailResponse toProductDetailResponseDTO(Product product) {
         return ProductDetailResponse.builder()
                 .productId(product.getId())
                 .productImage(product.getProductImage())
@@ -23,6 +24,7 @@ public class ProductMapper {
                 .build();
     }
 
+
     public static SearchProductListResponse toSearchProductListDTO(
             final List<Product> relatedProducts,
             final List<Product> similarProducts
@@ -32,6 +34,7 @@ public class ProductMapper {
                 fromSimilarProducts(similarProducts)
         );
     }
+
 
     public static List<SearchProductDetailResponse> fromProducts(List<Product> products) {
         return products.stream()
@@ -45,6 +48,7 @@ public class ProductMapper {
                 )).toList();
     }
 
+
     public static List<SearchProductDetailResponse> fromSimilarProducts(final List<Product> similarProducts) {
         return similarProducts.stream()
                 .map(product -> SearchProductDetailResponse.of(
@@ -56,6 +60,7 @@ public class ProductMapper {
                         product.getPrice()
                 )).toList();
     }
+
 
     public static UserSellingProductListResponse fromUserSellingProducts(final List<Product> products) {
         return UserSellingProductListResponse.of(products.stream()
