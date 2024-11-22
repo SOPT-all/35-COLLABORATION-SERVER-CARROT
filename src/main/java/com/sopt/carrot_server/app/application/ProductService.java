@@ -1,9 +1,11 @@
 package com.sopt.carrot_server.app.application;
 
+import com.sopt.carrot_server.app.domain.enums.Category;
+import com.sopt.carrot_server.app.dto.response.ProductCategoryListResponse;
+import com.sopt.carrot_server.app.mapper.ProductMapper;
 import com.sopt.carrot_server.app.domain.Product;
 import com.sopt.carrot_server.app.domain.repository.ProductRepository;
 import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
-import com.sopt.carrot_server.app.mapper.ProductMapper;
 import com.sopt.carrot_server.global.common.code.FailureCode;
 import com.sopt.carrot_server.global.common.exception.ProductException;
 
@@ -16,6 +18,10 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
     private final ProductRepository productRepository;
+
+    public ProductCategoryListResponse getProductCategories() {
+        return ProductMapper.getProductCategories(Category.getValues());
+    }
 
     public ProductDetailResponse getDetailInfo(Long productId) {
         Product product = productRepository.findDetailInfoByProductId(productId)
