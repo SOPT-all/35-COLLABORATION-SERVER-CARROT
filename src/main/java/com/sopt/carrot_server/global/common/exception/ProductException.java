@@ -12,7 +12,7 @@ public class ProductException extends ApiException {
     }
 
     public ProductException(FailureCode failureCode) {
-        super(failureCode, "[DiaryException]");
+        super(failureCode, "[ProductException]");
         this.failureCode = failureCode;
     }
 

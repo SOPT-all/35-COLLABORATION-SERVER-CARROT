@@ -1,6 +1,5 @@
 package com.sopt.carrot_server.app.mapper;
 
-
 import com.sopt.carrot_server.app.domain.Address;
 import com.sopt.carrot_server.app.domain.User;
 import com.sopt.carrot_server.app.dto.response.UserResponse;

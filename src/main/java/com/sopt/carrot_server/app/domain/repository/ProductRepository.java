@@ -35,4 +35,6 @@ public interface ProductRepository extends Repository<Product, Long> {
             "JOIN FETCH p.user u " +
             "WHERE u = :user AND p.status = :status")
     List<Product> findProductsByUser(@Param("user") User user, @Param("status") ProductSatus status);
+
 }
+

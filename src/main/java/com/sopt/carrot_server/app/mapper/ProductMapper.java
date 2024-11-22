@@ -4,10 +4,13 @@ import com.sopt.carrot_server.app.domain.Product;
 import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductDetailResponse;
 import com.sopt.carrot_server.app.dto.response.SearchProductListResponse;
+import com.sopt.carrot_server.app.dto.response.UserSellingProductDetailResponse;
+import com.sopt.carrot_server.app.dto.response.UserSellingProductListResponse;
 
 import java.util.List;
 
 public class ProductMapper {
+
     public static ProductDetailResponse toProductDetailResponseDTO(Product product){
         return ProductDetailResponse.builder()
                 .productId(product.getId())
@@ -53,6 +56,7 @@ public class ProductMapper {
                         product.getPrice()
                 )).toList();
     }
+
     public static UserSellingProductListResponse fromUserSellingProducts(final List<Product> products) {
         return UserSellingProductListResponse.of(products.stream()
                 .map(product -> UserSellingProductDetailResponse.of(
@@ -64,7 +68,4 @@ public class ProductMapper {
         );
     }
 
-    public static ProductCategoryListResponse getProductCategories(List<String> categories) {
-        return ProductCategoryListResponse.of(categories);
-    }
 }
