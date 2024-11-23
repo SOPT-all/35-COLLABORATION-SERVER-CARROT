@@ -1,12 +1,7 @@
 package com.sopt.carrot_server.app.mapper;
 
 import com.sopt.carrot_server.app.domain.Product;
-import com.sopt.carrot_server.app.dto.response.ProductCategoryListResponse;
-import com.sopt.carrot_server.app.dto.response.ProductDetailResponse;
-import com.sopt.carrot_server.app.dto.response.SearchProductDetailResponse;
-import com.sopt.carrot_server.app.dto.response.SearchProductListResponse;
-import com.sopt.carrot_server.app.dto.response.UserSellingProductDetailResponse;
-import com.sopt.carrot_server.app.dto.response.UserSellingProductListResponse;
+import com.sopt.carrot_server.app.dto.response.*;
 
 import java.util.List;
 
@@ -77,4 +72,19 @@ public class ProductMapper {
         return ProductCategoryListResponse.of(categories);
     }
 
+    public static HomeProductListResponse toHomeProductListDTO(List<Product> products) {
+        List<HomeProductDetailResponse> relatedProductDetails = products.stream()
+                .map(product -> HomeProductDetailResponse.of(
+                        product.getId(),
+                        product.getUser().getId(),
+                        product.getProductImage(),
+                        product.getTitle(),
+                        product.getPrice(),
+                        product.getUser().getAddress().getDong(),
+                        product.getView()
+                ))
+                .toList();
+
+        return HomeProductListResponse.of(relatedProductDetails);
+    }
 }
