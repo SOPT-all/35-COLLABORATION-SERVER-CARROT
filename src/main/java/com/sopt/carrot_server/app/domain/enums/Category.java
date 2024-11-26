@@ -44,7 +44,7 @@ public enum Category {
         // 주어진 value에 해당하는 영어 이름 찾기
         for (Category category : Category.values()) {
             if (category.name().equals(value)) {
-                return category.getValue();it
+                return category.getValue();
             }
         }
         return null; // 매칭되지 않으면 null 반환
