@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @Builder
 public class UserResponse {
-    private Long userId;
+    private Long user_id;
     private String nickname;
-    private String profileImage;
+    private String profile_image;
     private String address;
 }

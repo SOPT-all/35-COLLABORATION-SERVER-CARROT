@@ -24,7 +24,10 @@ public class ProductController {
     @GetMapping("/home")
     public ResponseEntity<SuccessResponse> getProductsByCategories(
             @RequestParam(value = "category", required = false) List<String> categories
-    ) {
+    )
+
+    {
+
         HomeProductListResponse productList = productService.getProductInfo(categories);
         return ResponseEntity.ok(SuccessResponse.of(
                 SuccessCode.SUCCESS_GET_PRODUCTS_BY_CATEGORIES,
