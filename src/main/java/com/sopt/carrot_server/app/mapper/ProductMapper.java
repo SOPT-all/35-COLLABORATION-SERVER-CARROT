@@ -81,7 +81,8 @@ public class ProductMapper {
                         product.getProductImage(),
                         product.getTitle(),
                         product.getPrice(),
-                        product.getUser().getAddress().getDong()
+                        product.getUser().getAddress().getDong(),
+                        product.getView()
                 ))
                 .toList();
 

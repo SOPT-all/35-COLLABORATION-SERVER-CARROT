@@ -29,7 +29,7 @@ public class ProductService {
         return ProductMapper.getProductCategories(Category.getValues());
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     public ProductDetailResponse getDetailInfo(Long productId) {
         Product product = productRepository.findDetailInfoByProductId(productId)
                 .orElseThrow(() -> new ProductException(FailureCode.INVALID_VALUE));
