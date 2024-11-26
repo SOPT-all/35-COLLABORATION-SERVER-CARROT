@@ -38,4 +38,9 @@ public enum Category {
                 .map(Category::getValue).toList();
     }
 
+
+    public static String fromKoreanToEnglish(String koreanCategory){
+        return Arrays.stream(Category.values()).filter(category -> category.value.equals(koreanCategory))
+                .findFirst().orElseThrow(()-> new IllegalArgumentException("올바르지 않은 카테고리")).name();
+    }
 }
