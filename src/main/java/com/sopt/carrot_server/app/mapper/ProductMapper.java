@@ -9,8 +9,8 @@ public class ProductMapper {
 
     public static ProductDetailResponse toProductDetailResponseDTO(Product product) {
         return ProductDetailResponse.builder()
-                .productId(product.getId())
-                .productImage(product.getProductImage())
+                .product_id(product.getId())
+                .product_image(product.getProductImage())
                 .title(product.getTitle())
                 .category(product.getCategory())
                 .content(product.getContent())
@@ -80,8 +80,7 @@ public class ProductMapper {
                         product.getProductImage(),
                         product.getTitle(),
                         product.getPrice(),
-                        product.getUser().getAddress().getDong(),
-                        product.getView()
+                        product.getUser().getAddress().getDong()
                 ))
                 .toList();
 

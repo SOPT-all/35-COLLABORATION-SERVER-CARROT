@@ -11,8 +11,7 @@ public record HomeProductDetailResponse(
         String product_image,
         String title,
         String price,
-        String address,
-        int view
+        String address
 ) {
     public static HomeProductDetailResponse of(
             final Long id,
@@ -20,8 +19,7 @@ public record HomeProductDetailResponse(
             final String product_image,
             final String title,
             final String price,
-            final String address,
-            final int view
+            final String address
     ) {
         return HomeProductDetailResponse.builder()
                 .id(id)
@@ -30,7 +28,6 @@ public record HomeProductDetailResponse(
                 .title(title)
                 .price(price)
                 .address(address)
-                .view(view)
                 .build();
     }
 }
