@@ -15,7 +15,8 @@ public enum SuccessCode {
     // Product
     SUCCESS_SEARCH_PRODUCTS(HttpStatus.OK),
     SUCCESS_GET_PRODUCT_DETAIL(HttpStatus.OK),
-    SUCCESS_GET_PRODUCT_CATEGORIES(HttpStatus.OK);
+    SUCCESS_GET_PRODUCT_CATEGORIES(HttpStatus.OK),
+    SUCCESS_GET_PRODUCTS_BY_CATEGORIES(HttpStatus.OK);
 
     private final HttpStatus httpStatus;
 

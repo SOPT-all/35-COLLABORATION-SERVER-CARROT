@@ -36,4 +36,16 @@ public interface ProductRepository extends Repository<Product, Long> {
             "WHERE u = :user AND p.status = :status")
     List<Product> findProductsByUser(@Param("user") User user, @Param("status") ProductSatus status);
 
+    @Query("SELECT p " +
+            "FROM Product p " +
+            "JOIN FETCH p.user u " +
+            "JOIN FETCH u.address a " +
+            "WHERE p.category IN :categories")
+    List<Product> findProductsByCategories(@Param("categories") List<String> categories);
+
+    @Query("SELECT p " +
+            "FROM Product p " +
+            "JOIN FETCH p.user u " +
+            "JOIN FETCH u.address a")
+    List<Product> findAll();
 }
