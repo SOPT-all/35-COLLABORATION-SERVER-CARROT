@@ -1,6 +1,7 @@
 package com.sopt.carrot_server.app.mapper;
 
 import com.sopt.carrot_server.app.domain.Product;
+import com.sopt.carrot_server.app.domain.enums.Category;
 import com.sopt.carrot_server.app.dto.response.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public class ProductMapper {
                 .product_id(product.getId())
                 .product_image(product.getProductImage())
                 .title(product.getTitle())
-                .category(product.getCategory())
+                .category(Category.toKorean(product.getCategory()))
                 .content(product.getContent())
                 .price(product.getPrice())
                 .view(product.getView())

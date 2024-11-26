@@ -40,6 +40,16 @@ public enum Category {
                 .map(Category::getValue).toList();
     }
 
+    public static String toKorean(String value) {
+        // 주어진 value에 해당하는 영어 이름 찾기
+        for (Category category : Category.values()) {
+            if (category.name().equals(value)) {
+                return category.getValue();it
+            }
+        }
+        return null; // 매칭되지 않으면 null 반환
+    }
+
     public static String fromKoreanToEnglish(String koreanCategory){
         return Arrays.stream(Category.values()).filter(category -> category.value.equals(koreanCategory))
                 .findFirst().orElseThrow(()-> new ProductException(FailureCode.INVALID_CATEGORY)).name();
