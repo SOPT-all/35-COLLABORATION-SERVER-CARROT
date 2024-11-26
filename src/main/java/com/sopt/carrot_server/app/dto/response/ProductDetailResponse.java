@@ -4,8 +4,8 @@ import lombok.Builder;
 
 @Builder
 public record ProductDetailResponse(
-        Long productId,
-        String productImage,
+        Long product_id,
+        String product_image,
         String title,
         String category,
         String content,
@@ -13,8 +13,8 @@ public record ProductDetailResponse(
         int view
 ) {
     public static ProductDetailResponse of(
-            final Long productId,
-            final String productImage,
+            final Long product_id,
+            final String product_image,
             final String title,
             final String category,
             final String content,
@@ -22,8 +22,8 @@ public record ProductDetailResponse(
             final int view
     ) {
         return ProductDetailResponse.builder()
-                .productId(productId)
-                .productImage(productImage)
+                .product_id(product_id)
+                .product_image(product_image)
                 .title(title)
                 .category(category)
                 .content(content)
