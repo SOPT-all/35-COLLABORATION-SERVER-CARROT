@@ -11,9 +11,10 @@ import com.sopt.carrot_server.global.common.code.FailureCode;
 import com.sopt.carrot_server.global.common.exception.ProductException;
 
 import lombok.RequiredArgsConstructor;
-
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,22 +29,24 @@ public class ProductService {
         return ProductMapper.getProductCategories(Category.getValues());
     }
 
+    @Transactional(readOnly = true)
     public ProductDetailResponse getDetailInfo(Long productId) {
         Product product = productRepository.findDetailInfoByProductId(productId)
                 .orElseThrow(() -> new ProductException(FailureCode.INVALID_VALUE));
+        product.updateView();
         return ProductMapper.toProductDetailResponseDTO(product);
     }
 
-    public HomeProductListResponse getProductInfo(List<String> categories){
+    public HomeProductListResponse getProductInfo(List<String> categories) {
         List<Product> relatedProducts;
 
-        List<String> englishCategories = categories!= null && !categories.isEmpty()? categories.stream().map(Category::fromKoreanToEnglish).toList():null;
+        List<String> englishCategories = categories != null && !categories.isEmpty() ? categories.stream().map(Category::fromKoreanToEnglish).toList() : null;
 
         log.info("Final English categories used for query: {}", englishCategories);
-        if(englishCategories !=null && !englishCategories.isEmpty()){
+        if (englishCategories != null && !englishCategories.isEmpty()) {
             relatedProducts = productRepository.findProductsByCategories(englishCategories);
             log.info("Found {} products for categories: {}", relatedProducts.size(), englishCategories);
-        }else{
+        } else {
             relatedProducts = productRepository.findAll();
         }
 

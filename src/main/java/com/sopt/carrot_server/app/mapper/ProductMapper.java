@@ -80,8 +80,7 @@ public class ProductMapper {
                         product.getProductImage(),
                         product.getTitle(),
                         product.getPrice(),
-                        product.getUser().getAddress().getDong(),
-                        product.getView()
+                        product.getUser().getAddress().getDong()
                 ))
                 .toList();
 

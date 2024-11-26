@@ -1,5 +1,7 @@
 package com.sopt.carrot_server.app.domain.enums;
 
+import com.sopt.carrot_server.global.common.code.FailureCode;
+import com.sopt.carrot_server.global.common.exception.ProductException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -38,9 +40,8 @@ public enum Category {
                 .map(Category::getValue).toList();
     }
 
-
     public static String fromKoreanToEnglish(String koreanCategory){
         return Arrays.stream(Category.values()).filter(category -> category.value.equals(koreanCategory))
-                .findFirst().orElseThrow(()-> new IllegalArgumentException("올바르지 않은 카테고리")).name();
+                .findFirst().orElseThrow(()-> new ProductException(FailureCode.INVALID_CATEGORY)).name();
     }
 }

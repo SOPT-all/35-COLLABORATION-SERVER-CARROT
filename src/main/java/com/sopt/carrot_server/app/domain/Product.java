@@ -58,4 +58,8 @@ public class Product extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private ProductSatus status;
 
+    public void updateView() {
+        this.view += 1;
+    }
+
 }
