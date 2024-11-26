@@ -27,7 +27,7 @@ public class UserController {
 
     }
 
-    @GetMapping("/users/{userId}/sellig-products")
+    @GetMapping("/users/{userId}/selling-products")
     public ResponseEntity<SuccessResponse> getUserSellingProducts(@PathVariable Long userId) {
         UserSellingProductListResponse userSellingProducts = userService.getUserSellingProducts(userId);
         return ResponseEntity.ok(SuccessResponse.of(
